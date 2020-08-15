@@ -28,6 +28,9 @@ body{
 .text-bright{
   color: var(--lightBlue);
 }
+.text-red{
+  color: red;
+}
 .btn-black{
   background:transparent;
   text-transform:capitalize;
