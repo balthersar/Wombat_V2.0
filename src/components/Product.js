@@ -126,10 +126,16 @@ const ProductWrapper = styled.div`
         cursor:pointer;
     }
     .soldOutWaterMark{
+        font-size:2rem;
+        border: 0.2rem solid red;
         position:absolute;
         transform:rotate(-30deg);
         -webkit-transform:rotate(-30deg);
-        top:0;
-        left:-1rem;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+        bottom:7rem;
     }
 `;
