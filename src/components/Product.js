@@ -136,6 +136,7 @@ const ProductWrapper = styled.div`
         left: 0;
         right: 0;
         text-align: center;
-        bottom:7rem;
+       
+        bottom: 50%;
     }
 `;
