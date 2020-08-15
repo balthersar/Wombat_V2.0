@@ -38,7 +38,7 @@ export default class Product extends Component {
                                         <i className=" fas fa-cart-plus"/>
                                     )} 
                             </button>
-                            ):null}
+                            ):(null)}
                         </div>
                     )}
                     
@@ -53,7 +53,7 @@ export default class Product extends Component {
                         </p>
                         {available ?(
                             null
-                        ):<p className="text-red font-italic mb-0"> Ausverkauft</p>};
+                        ):<p className="soldOutWaterMark text-red font-italic mb-0"> Ausverkauft</p>};
                     
                         <h5 className="text-blue font-italic mb-0">
                             <span className="mr-1">€</span>
@@ -124,5 +124,12 @@ const ProductWrapper = styled.div`
     .cart-btn:hover{
         color:var(--mainBlue);
         cursor:pointer;
+    }
+    .soldOutWaterMark{
+        position:absolute;
+        transform:rotate(-30deg);
+        -webkit-transform:rotate(-30deg);
+        top:0;
+        left:-1rem;
     }
 `;
