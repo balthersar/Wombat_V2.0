@@ -62,19 +62,16 @@ class ProductProvider extends Component {
     };
     openModal = (id) => {
         const product = this.getItem(id);
-        console.log(product);
-        console.log(detailProduct);
-        this.setState = (() => {
+        this.setState(() => {
             return { modalProduct: product, modalOpen: true };
         },
             () => {
                 console.log(this.state);
-
             })
 
     };
     closeModal = () => {
-        this.setState = (() => {
+        this.setState(() => {
             return { modalOpen: false };
         });
     };
@@ -159,7 +156,6 @@ class ProductProvider extends Component {
     addArticleCounter = () => {
         let count = 0;
         this.state.cart.map(item => (count += item.inCart * item.count));
-        console.log(count);
         this.setState(() => {
             return {
                 cartArticleCount: count,
