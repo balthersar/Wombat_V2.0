@@ -11,19 +11,19 @@ export default function CartTotals({value}) {
                         <Link to="/" >
                             <button className="btn btn-outline-danger text-uppercase mb-3 px-5" 
                             type ="button" onClick={()=> clearCart()}>
-                                clear Cart
+                              Warenkorb leeren
                             </button>
                         </Link>
                         <h5>
-                            <span className="text-title">subtotal :</span>
+                            <span className="text-title">Netto:</span>
                             <strong>{cartSubTotal} €</strong>
                         </h5>
                         <h5>
-                            <span className="text-title">tax :</span>
+                            <span className="text-title">Mwst (19%):</span>
                             <strong>{cartTax} €</strong>
                         </h5>
                         <h5>
-                            <span className="text-title">total:</span>
+                            <span className="text-title">Zu zahlen:</span>
                             <strong>{cartTotal} €</strong>
                         </h5>
                     </div>

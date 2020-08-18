@@ -25,7 +25,6 @@ export default class Product extends Component {
                             className="cart-btn"
                             disabled = {inCart ? true : false}
                             onClick = {() => {
-                                value.addToCart(id);
                                 value.openModal(id);
                             }}
                             >
@@ -102,7 +101,7 @@ const ProductWrapper = styled.div`
     .card-img-top{
         transition:all 0.2s linear;
     }
-    .img-container:hover .card-img-top{
+    .card:hover .card-img-top{
         transform:scale(1.1)
     }
     .cart-btn{
@@ -118,7 +117,7 @@ const ProductWrapper = styled.div`
         transform:translate(100%,100%);
         transition:all 0.5s linear;
     }
-    .img-container:hover .cart-btn{
+    .card:hover .cart-btn{
         transform:translate(0,0);
     }
     .cart-btn:hover{
@@ -136,7 +135,6 @@ const ProductWrapper = styled.div`
         left: 0;
         right: 0;
         text-align: center;
-       
         bottom: 50%;
     }
 `;

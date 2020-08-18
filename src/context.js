@@ -16,6 +16,7 @@ class ProductProvider extends Component {
         cartTax: 0,
         cartTotal: 0,
         cartArticleCount:0,
+        selectedSize: "Groß",
     }
     componentDidMount() {
         this.setProducts();
@@ -47,7 +48,13 @@ class ProductProvider extends Component {
         const product = tempProducts[index];
         product.inCart = true;
         product.count = 1;
-        const price = product.price;
+        let price =0;
+        {product.selectedSize==="Groß"?(
+            price = product.price1
+        ):(
+            price = product.price2
+        )}
+        
         product.total = price;
 
         this.setState(
@@ -64,11 +71,7 @@ class ProductProvider extends Component {
         const product = this.getItem(id);
         this.setState(() => {
             return { modalProduct: product, modalOpen: true };
-        },
-            () => {
-                console.log(this.state);
-            })
-
+        })
     };
     closeModal = () => {
         this.setState(() => {
@@ -139,11 +142,11 @@ class ProductProvider extends Component {
             })
     }
     addTotals = () => {
-        let subTotal = 0;
-        this.state.cart.map(item => (subTotal += item.total));
-        const tempTax = subTotal * 0.19;
+        let total = 0;
+        this.state.cart.map(item => (total += item.total));
+        const tempTax = total * 0.19;
         const tax = parseFloat(tempTax.toFixed(2));
-        const total = subTotal + tax;
+        const subTotal = total - tax;
         this.setState(() => {
             return {
                 cartSubTotal: subTotal,
@@ -162,6 +165,14 @@ class ProductProvider extends Component {
             }
         })
     }
+    changeSize = (id, selectedSize) => {
+        
+        const product = this.getItem(id);
+        product.selectedSize = selectedSize;
+        this.setState(() => {
+            return { modalProduct: product }
+        })
+    }
     render() {
         return (
             <ProductContext.Provider value={{
@@ -173,7 +184,8 @@ class ProductProvider extends Component {
                 increment: this.increment,
                 decrement: this.decrement,
                 removeItem: this.removeItem,
-                clearCart: this.clearCart
+                clearCart: this.clearCart,
+                changeSize: this.changeSize
             }}>
                 {this.props.children}
             </ProductContext.Provider>

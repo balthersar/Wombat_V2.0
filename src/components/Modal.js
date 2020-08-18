@@ -9,8 +9,8 @@ export default class Modal extends Component {
         return (
             <ProductConsumer>
                 {(value) => {
-                    const {modalOpen, closeModal} =value;
-                    const {img, title, price} = value.modalProduct
+                    const {modalOpen, closeModal, addToCart, changeSize} =value;
+                    const {id, img, title, price1, price2, selectedSize} = value.modalProduct;
                     if (!modalOpen){
                         return null;
                     }
@@ -18,21 +18,62 @@ export default class Modal extends Component {
                         return(
                         <ModalContainer>
                             <div className="container">
+                                
+
                                 <div className="row">
                                     <div id="modal" className="col-8 mx-auto col-md-6 col-lg-4 text-center p-5">
-                                        <h5>Artikel wurde dem Warenkorb hinzugefügt</h5>
+                                        <button className="abortButton" 
+                                            onClick ={()=>{
+                                                closeModal()
+                                            }}>
+                                                <span >&times;</span>
+                                        </button>
+                                        <h5>Artikel im Warenkorb</h5>
                                         <img src={img} className="img-fluid" alt="product"/>
                                         <h5>{title}</h5>
-                                        <h5 className="text-muted">Preis: {price} €</h5>
+                                        <p>Wähle eine Größe:</p>
+                                        <div className="column">
+                                            {selectedSize==='Groß'?(
+                                                <div className="row d-flex justify-content-center" >
+                                                    <h5 className="text-muted btn border border-dark font-weight-bold" onClick ={()=>{
+                                                        changeSize(id, 'Groß');
+                                                    }}>
+                                                    Groß*: {price1} €</h5>  
+
+                                                    <h5 className="text-muted btn" onClick ={()=>{
+                                                    changeSize(id, 'Mini');
+                                                    }}
+                                                    >Mini*: {price2} €</h5>   
+                                                </div>
+                                            ):(
+                                                <div className="row d-flex justify-content-center" >
+                                                    <h5 className="text-muted btn" onClick ={()=>{
+                                                        changeSize(id, 'Groß');
+                                                    }}>
+                                                    Groß*: {price1} €</h5>   
+                                                    <h5 className="text-muted btn border border-dark font-weight-bold" onClick ={()=>{
+                                                    changeSize(id, 'Mini');
+                                                }}
+                                            >Mini*: {price2} €</h5>  
+                                            </div>
+                                            )}
+                                            
                                         
+                                        </div>
                                         <Link to='/'>
                                             <ButtonContainer 
-                                            onClick ={()=>closeModal()}>
+                                                onClick ={()=>{
+                                                    addToCart(id);
+                                                    closeModal()
+                                                }}>
                                                 Weiter Shoppen
                                             </ButtonContainer>
                                         </Link>
                                         <Link to='/cart'>
-                                            <ButtonContainer cart onClick ={()=>closeModal()}>
+                                            <ButtonContainer cart onClick ={()=>{
+                                                addToCart(id);
+                                                closeModal()
+                                            }}>
                                                 Zum Warenkorb
                                             </ButtonContainer>
                                         </Link>
@@ -61,4 +102,13 @@ justify-content:center;
 #modal {
     background:var(--mainWhite);
 }
+.abortButton{
+    position: absolute; 
+    right:1rem;
+    top:0;
+    font-size: 2rem;
+    border: 0px solid #d6d6d6; 
+    outline:none; 
+}
+
 `;

@@ -4,13 +4,15 @@ import {Link} from 'react-router-dom';
 import {ButtonContainer} from './Button';
 import styling from 'styled-components';
 
+
 export default class Details extends Component {
     render() {
         return (
             <DetailWrapper>
             <ProductConsumer>
                 {(value) => {
-                    const {id, company, img, info, price, title, inCart, available} = value.detailProduct;
+                    const {changeSize} = value;
+                    const {id, company, img, info, price, title, inCart, available, selectedSize, price1, price2} = value.detailProduct;
                     return (
                         <div className="py-2">
                         <div className="container py-5">
@@ -38,12 +40,45 @@ export default class Details extends Component {
                                         Weitere Informationen:
                                     </p>
                                     <p className="text-muted lead">{info}</p>
+                                    {/* Auswahl des Produktes (Größe) */}
+                                    {selectedSize==='Groß'?(
+                                                <div className="row d-flex mb-0" >
+                                                    <h5 className=" btn border border-white text-white font-weight-bold" onClick ={()=>{
+                                                        changeSize(id, 'Groß');
+                                                    }}>
+                                                    Groß*: {price1} €</h5>  
+
+                                                    <h5 className=" btn text-dark" onClick ={()=>{
+                                                        {!inCart?
+                                                            (changeSize(id, 'Mini')
+                                                            ):(changeSize(id, 'Groß'))
+                                                        }
+                                                        
+                                                    }}
+                                                    >Mini*: {price2} €</h5>   
+                                                </div>
+                                            ):(
+                                                <div className="row d-flexmb-0 " >
+                                                    <h5 className=" btn text-white text-dark" onClick ={()=>{
+                                                        {!inCart?
+                                                            (changeSize(id, 'Groß')
+                                                            ):(changeSize(id, 'Mini'))
+                                                        }
+                                                    }}>
+                                                    Groß*: {price1} €</h5>   
+                                                    <h5 className="btn border border-white text-white font-weight-bold" onClick ={()=>{
+                                                    changeSize(id, 'Mini');
+                                                }}
+                                            >Mini*: {price2} €</h5>  
+                                            </div>
+                                            )}
                                     {/* Model ist derzeit ausverkauft */}
                                     {available ?(
                                         null
                                         ):<p className="text-red font-italic mb-0"> Derzeit leider nicht verfügbar </p>
                                     }
                                     {/*buttons */}
+                                    
                                     <div>
                                         <Link to='/'>
                                             <ButtonContainer>
@@ -56,7 +91,7 @@ export default class Details extends Component {
                                             disabled={inCart?true:false}
                                             onClick= {()=>{
                                                 value.addToCart(id);
-                                                value.openModal(id);
+                                                
                                             }}
                                         >
                                             {inCart? 'Im Warenkorb':"In den Warenkorb"}

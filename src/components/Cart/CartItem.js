@@ -1,18 +1,22 @@
 import React from 'react'
 
 export default function CartItem({item ,value}) {
-    const {id,title,img,price,total,count} = item;
+    const {id,title,img,price,total,count, selectedSize} = item;
     const {increment, decrement, removeItem}  = value;
     return (
         <div className="row my-2 text-capitalize text-center">
-            <div className = "col-10 mx-auto col-lg-2">
+            <div className = "col-10 mx-auto col-lg-1">
                 <img src={img} style ={{width:'5rem', height:'auto'}} className="img-fluid" alt="product"/>
             </div>
-            <div className = "col-10 mx-auto col-lg-2">
+            <div className = "col-10 mx-auto col-lg-1">
                 <span className="d-lg-none">product:</span>
                 {title}
             </div>
-            <div className = "col-10 mx-auto col-lg-2">
+            <div className = "col-10 mx-auto col-lg-1">
+                <span className="d-lg-none">Größe:</span>
+                {selectedSize}
+            </div>
+            <div className = "col-10 mx-auto col-lg-1">
                 <span className="d-lg-none">Preis:</span>
                 {price}
             </div>
@@ -26,13 +30,13 @@ export default function CartItem({item ,value}) {
                     </div>
                 </div>    
             </div>
-            <div className = "col-10 mx-auto col-lg-2">
+            <div className = "col-10 mx-auto col-lg-1">
                 <div className="cart-icon" onClick ={()=>removeItem(id)}>
                     <i className="fas fa-trash"></i>
                 </div>
             </div>
-            <div className = "col-10 mx-auto col-lg-2">
-                <strong>item total: {total} €</strong>
+            <div className = "col-10 mx-auto col-lg-1">
+                <strong>{total} €</strong>
             </div>
         </div>
     )
