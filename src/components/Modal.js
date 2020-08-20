@@ -107,7 +107,7 @@ justify-content:center;
     right:1rem;
     top:0;
     font-size: 2rem;
-    border: 0px solid #d6d6d6; 
+    border: 0px solid #000000; 
     outline:none; 
 }
 
