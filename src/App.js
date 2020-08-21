@@ -9,6 +9,7 @@ import Cart from './components/Cart/Cart';
 import Default from './components/Default';
 import Modal  from './components/Modal';
 import Checkout from './components/checkout';
+import Footer from './components/footer';
 
 function App() {
   return <React.Fragment>
@@ -21,6 +22,7 @@ function App() {
       <Route exact path="/checkout" component={Checkout} />
       <Route component={Default} />
     </Switch>
+    <Footer/>
     <Modal />
   </React.Fragment>;
 }

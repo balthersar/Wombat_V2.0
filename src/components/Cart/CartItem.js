@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function CartItem({item ,value}) {
-    const {id,title,img,price,total,count, selectedSize} = item;
+    const {id,title,img,price1, price2 ,total,count, selectedSize} = item;
     const {increment, decrement, removeItem}  = value;
     return (
         <div className="row my-2 text-capitalize text-center">
@@ -18,7 +18,7 @@ export default function CartItem({item ,value}) {
             </div>
             <div className = "col-10 mx-auto col-lg-1">
                 <span className="d-lg-none">Preis:</span>
-                {price}
+                {selectedSize==="Groß"?(price1):(price2)}
             </div>
             <div className = "col-10 mx-auto col-lg-2 my-2 my-lg-0">
                 <div className="d-flex justify-content-center">

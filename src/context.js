@@ -84,7 +84,13 @@ class ProductProvider extends Component {
         const index = tempCart.indexOf(selectedProduct)
         const product = tempCart[index];
         product.count = product.count + 1;
-        product.total = product.count * product.price;
+        let price =0;
+        {product.selectedSize==="Groß"?(
+            price = product.price1
+        ):(
+            price = product.price2
+        )}
+        product.total = product.count * price;
 
         this.setState(() => {
             return { cart: [...tempCart] } 
@@ -102,7 +108,13 @@ class ProductProvider extends Component {
             this.removeItem(id);
         }
         else{
-            product.total = product.count * product.price;
+            let price =0;
+            {product.selectedSize==="Groß"?(
+                price = product.price1
+            ):(
+                price = product.price2
+            )}
+            product.total = product.count * price;
             this.setState(() => {
                 return { cart: [...tempCart] } 
             }, 
@@ -146,7 +158,8 @@ class ProductProvider extends Component {
         this.state.cart.map(item => (total += item.total));
         const tempTax = total * 0.19;
         const tax = parseFloat(tempTax.toFixed(2));
-        const subTotal = total - tax;
+        let subTotal = total - tax;
+        subTotal = parseFloat(subTotal.toFixed(2));
         this.setState(() => {
             return {
                 cartSubTotal: subTotal,
