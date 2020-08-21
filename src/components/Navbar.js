@@ -9,8 +9,8 @@ export default class Navbar extends Component{
     render(){
         const navslide = () => {
             const burger = document.querySelector(".burger");
-            const nav = document.querySelector(".navbar-nav");
-            const navLinks = document.querySelectorAll(".navbar-nav li");
+            const nav = document.querySelector(".nav-links");
+            const navLinks = document.querySelectorAll(".nav-links li");
               nav.classList.toggle("open");
   
               navLinks.forEach((link, index) => {
