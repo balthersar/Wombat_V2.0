@@ -26,7 +26,7 @@ export default class Navbar extends Component{
             };
 
         return(
-            <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-2">
+            <NavWrapper className="navbar  navbar-dark px-sm-2">
                 <div class="burger" onClick={navslide}>
                     <div class="line1"></div>
                     <div class="line2"></div>
@@ -37,11 +37,11 @@ export default class Navbar extends Component{
                     
                 </Link>
                     
-                <ul className="nav-links navbar-nav align-items-center">
-                    <li className="nav-item ml-5">
+                <ul className="nav-links">
+                    <li className="nav-item ">
                         <Link to="/" className="nav-link">Was ist Wombat</Link>
                     </li>
-                    <li className="nav-item ml-5">
+                    <li className="nav-item ">
                         <Link to="/kollektion" className="nav-link">Kollektion</Link>
                     </li>
                     
@@ -83,45 +83,47 @@ const NavWrapper = styling.nav`
         font-size:1.3rem !important;
         text-transform:capitalize;
     }
-    .navbar-brand>a{
-        position: absolute;
-        z-index: 99;
-      }
+    
     .navbar-brand img{
-        width: 100px;
-        height: 50px;
+        width: auto;
+        height: 40px;
         margin-left: 20px;
-        margin-top: 5px;
         z-index: 99;
         transform: translate3d(0,0,0);
         -webkit-transform: translate3d(0,0,0);
         -webkit-transform: translateZ(99px);
         cursor: pointer;
     }
-    .navbar-brand>h1{
-        color: white;
-        position: absolute;
-        font-family: 'Archivo Narrow', sans-serif;
-        font-size: 24px;
-        font-weight: 100;
-        margin-left: 152px;
-        z-index: 99;
-        transform: translate3d(0,0,0);
-        -webkit-transform: translate3d(0,0,0);
-        -webkit-transform: translateZ(99px);
-        
-    }
+    
     .nav-links {
         display: flex;
         list-style: none;
+        margin-top:auto;
+        margin-bottom:auto;
         width: 50%;
-        height: 100%;
+        height: 10%;
         justify-content: space-around;
         align-items: center;
         margin-left: auto;
     }
-    
-    
+
+    .nav-links li a {
+        color: white;
+        text-decoration: none;
+        font-size: 25px;   
+    }
+    .nav-links li:hover{
+        background: white;
+        transition: .5s;
+        transform: translate3d(0,0,0);
+        -webkit-transform: translate3d(0,0,0);
+        -webkit-transition: .5s;   
+        border-radius: 7px;
+    }
+    .nav-links li a:hover{
+        color: rgb(125,166,136);
+    }
+        
     .cartArticleCount{
         position: absolute;
         margin-top: -15px;
@@ -134,8 +136,6 @@ const NavWrapper = styling.nav`
         
         .navbar-brand img{
             margin-left: 40px;
-            z-index: 99;
-            cursor: pointer;
         }
         .line1, .line2, .line3 {
           width: 30px;

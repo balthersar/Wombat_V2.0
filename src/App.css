@@ -8,7 +8,7 @@
   --wombatGreen:rgb(125,166,136);
 }
 body{
-  font-family: "Oswald", sans-serif !important;
+  font-family: "Oswald", sans-serif ;
   /*background: var(--mainWhite) !important;*/
   background-image: url('./images/wombat_background.jpg');
   background-repeat: no-repeat;
