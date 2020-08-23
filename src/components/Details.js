@@ -12,7 +12,19 @@ export default class Details extends Component {
             <ProductConsumer>
                 {(value) => {
                     const {changeSize} = value;
-                    const {id, company, img, info, price, title, inCart, available, selectedSize, price1, price2} = value.detailProduct;
+                    const {id, company, img, info, price, title,size, inCart, available, selectedSize} = value.detailProduct;
+                    const listVariants = price.map((value, index) =>
+                        <h5 className= {size[index]===selectedSize ? 'btn border border-white text-white font-weight-bold':'btn text-white text-dark'}
+                        onClick ={()=>{changeSize(id, size[index]);}}
+                        >
+                        {size[index]}: {price[index]} €
+                        </h5>
+                    );
+                    // Check if all sizes of wombats are in the cart
+                    function isTrue(element, index, array) {
+                        return element === true;
+                    }
+                    const allVariantsInCart= (inCart.every(isTrue));
                     return (
                         <div className="py-2">
                         <div className="container py-5">
@@ -41,37 +53,11 @@ export default class Details extends Component {
                                     </p>
                                     <p className="text-muted lead">{info}</p>
                                     {/* Auswahl des Produktes (Größe) */}
-                                    {selectedSize==='Groß'?(
-                                                <div className="row d-flex mb-0" >
-                                                    <h5 className=" btn border border-white text-white font-weight-bold" onClick ={()=>{
-                                                        changeSize(id, 'Groß');
-                                                    }}>
-                                                    Groß*: {price1} €</h5>  
-
-                                                    <h5 className=" btn text-dark" onClick ={()=>{
-                                                        {!inCart?
-                                                            (changeSize(id, 'Mini')
-                                                            ):(changeSize(id, 'Groß'))
-                                                        }
-                                                        
-                                                    }}
-                                                    >Mini*: {price2} €</h5>   
+                                    <div className="column">
+                                                <div className="row d-flex justify-content-center" >
+                                                    {listVariants}                                                   
                                                 </div>
-                                            ):(
-                                                <div className="row d-flexmb-0 " >
-                                                    <h5 className=" btn text-white text-dark" onClick ={()=>{
-                                                        {!inCart?
-                                                            (changeSize(id, 'Groß')
-                                                            ):(changeSize(id, 'Mini'))
-                                                        }
-                                                    }}>
-                                                    Groß*: {price1} €</h5>   
-                                                    <h5 className="btn border border-white text-white font-weight-bold" onClick ={()=>{
-                                                    changeSize(id, 'Mini');
-                                                }}
-                                            >Mini*: {price2} €</h5>  
-                                            </div>
-                                            )}
+                                    </div>
                                     {/* Model ist derzeit ausverkauft */}
                                     {available ?(
                                         null
@@ -88,13 +74,13 @@ export default class Details extends Component {
                                         {available ?(
                                         <ButtonContainer 
                                             cart
-                                            disabled={inCart?true:false}
+                                            disabled={allVariantsInCart?true:false}
                                             onClick= {()=>{
                                                 value.addToCart(id);
                                                 
                                             }}
                                         >
-                                            {inCart? 'Im Warenkorb':"In den Warenkorb"}
+                                            {allVariantsInCart? 'Im Warenkorb':"In den Warenkorb"}
                                         </ButtonContainer>
                                         ):null}
                                     </div>

@@ -6,11 +6,22 @@ import {Link} from 'react-router-dom';
 
 export default class Modal extends Component {
     render() {
+        
         return (
             <ProductConsumer>
                 {(value) => {
                     const {modalOpen, closeModal, addToCart, changeSize} =value;
-                    const {id, img, title, price1, price2, selectedSize} = value.modalProduct;
+                    const {id, img, title, selectedSize, price, size} = value.modalProduct;
+                
+                    //create list of variants for the customer to choose from the database of the current variant:
+                    const listVariants = price.map((value, index) =>
+                        <h5 className= {size[index]===selectedSize ? 'text-muted btn border border-dark font-weight-bold':'text-muted btn'}
+                        onClick ={()=>{changeSize(id, size[index]);}}
+                        >
+                        {size[index]}: {price[index]} €
+                        </h5>
+                    );
+
                     if (!modalOpen){
                         return null;
                     }
@@ -18,8 +29,6 @@ export default class Modal extends Component {
                         return(
                         <ModalContainer>
                             <div className="container">
-                                
-
                                 <div className="row">
                                     <div id="modal" className="col-8 mx-auto col-md-6 col-lg-4 text-center p-5">
                                         <button className="abortButton" 
@@ -33,32 +42,9 @@ export default class Modal extends Component {
                                         <h5>{title}</h5>
                                         <p>Wähle eine Größe:</p>
                                         <div className="column">
-                                            {selectedSize==='Groß'?(
                                                 <div className="row d-flex justify-content-center" >
-                                                    <h5 className="text-muted btn border border-dark font-weight-bold" onClick ={()=>{
-                                                        changeSize(id, 'Groß');
-                                                    }}>
-                                                    Groß*: {price1} €</h5>  
-
-                                                    <h5 className="text-muted btn" onClick ={()=>{
-                                                    changeSize(id, 'Mini');
-                                                    }}
-                                                    >Mini*: {price2} €</h5>   
+                                                    {listVariants}                                                   
                                                 </div>
-                                            ):(
-                                                <div className="row d-flex justify-content-center" >
-                                                    <h5 className="text-muted btn" onClick ={()=>{
-                                                        changeSize(id, 'Groß');
-                                                    }}>
-                                                    Groß*: {price1} €</h5>   
-                                                    <h5 className="text-muted btn border border-dark font-weight-bold" onClick ={()=>{
-                                                    changeSize(id, 'Mini');
-                                                }}
-                                            >Mini*: {price2} €</h5>  
-                                            </div>
-                                            )}
-                                            
-                                        
                                         </div>
                                         <Link to='/'>
                                             <ButtonContainer 

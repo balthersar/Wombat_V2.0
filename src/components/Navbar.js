@@ -27,10 +27,10 @@ export default class Navbar extends Component{
 
         return(
             <NavWrapper className="navbar  navbar-dark px-sm-2">
-                <div class="burger" onClick={navslide}>
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
+                <div className="burger" onClick={navslide}>
+                    <div className="line1"></div>
+                    <div className="line2"></div>
+                    <div className="line3"></div>
                 </div>
                 <Link className="navbar-brand" to="/" alt="logo">
                     <img src={logo} alt="logo" />

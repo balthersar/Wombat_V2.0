@@ -4,15 +4,15 @@ import styling from 'styled-components';
 export default function footer() {
     return (
         <FooterWrapper>
-            <div class="footer">
-                <ul class="impressum">
+            <div className="footer">
+                <ul className="impressum">
                     <li><a href="./contact.html">Kontakt</a></li>
                     <li><a href="./impressum.html">Impressum</a></li>
                     <li><a href="./datenschutz.html">Datenschutz</a></li>
                     
                 </ul>
             
-                <div class="social_media">
+                <div className="social_media">
                     <p>Folge mir auf      &nbsp;  </p>
                     <a href="https://www.instagram.com/wombat.design/?hl=de">
                         <img src="../img/insta_icon.png" alt="wombat_logo"/>

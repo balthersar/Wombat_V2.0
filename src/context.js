@@ -18,6 +18,7 @@ class ProductProvider extends Component {
         cartArticleCount:0,
         selectedSize: "Groß",
     }
+    
     componentDidMount() {
         this.setProducts();
     }
@@ -45,18 +46,19 @@ class ProductProvider extends Component {
     addToCart = (id) => {
         let tempProducts = [...this.state.products];
         const index = tempProducts.indexOf(this.getItem(id));
-        const product = tempProducts[index];
-        product.inCart = true;
-        product.count = 1;
-        let price =0;
-        {product.selectedSize==="Groß"?(
-            price = product.price1
-        ):(
-            price = product.price2
-        )}
         
-        product.total = price;
+        const product = tempProducts[index];
 
+        product.size.map((value, index) =>{
+            if (product.size[index]===product.selectedSize){
+                product.inCart[index]= true;
+                product.total[index] = product.price[index];
+                product.count[index] = 1;
+                
+            }
+        
+        });
+        
         this.setState(
         () => {
             return { products: tempProducts, cart: [...this.state.cart, product] };

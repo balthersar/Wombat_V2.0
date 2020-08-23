@@ -7,6 +7,17 @@ import PropTypes from 'prop-types';
 export default class Product extends Component {
     render() {
         const {id, title, img, price, inCart, available} = this.props.product;
+        
+        
+        // Check if all sizes of wombats are in the cart
+        function isTrue(element, index, array) {
+            return element === true;
+        }
+        const allVariantsInCart= (inCart.every(isTrue));
+
+        const minPrice = Math.min.apply(Math, price);
+        const maxPrice = Math.max.apply(Math, price);
+        
         return (
             <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3" >
                 <div className="card">
@@ -19,16 +30,16 @@ export default class Product extends Component {
                             <Link to="/details">
                                 <img src={img} alt ="product" className="card-img-top" />
                             </Link>
-                            {/* Button warenkorb nur bei verfügbaren Artikel */}
+                            {/* Button Warenkorb nur bei verfügbaren Artikel */}
                             {available ?(
                             <button 
                             className="cart-btn"
-                            disabled = {inCart ? true : false}
+                            disabled = {allVariantsInCart ? true : false}
                             onClick = {() => {
                                 value.openModal(id);
                             }}
                             >
-                                    {inCart ? (
+                                    {allVariantsInCart ? (
                                         <p className="text-capitalize mb-0" disabled>
                                             {" "}
                                             Im Warenkorb
@@ -55,8 +66,8 @@ export default class Product extends Component {
                         ):<p className="soldOutWaterMark text-red font-italic mb-0"> Ausverkauft</p>};
                     
                         <h5 className="text-blue font-italic mb-0">
+                            {minPrice} - {maxPrice}
                             <span className="mr-1">€</span>
-                            {price}
                         </h5>
                     </div>
                 </div>

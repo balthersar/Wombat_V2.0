@@ -7,8 +7,13 @@ export default function CartList({value}) {
     const {cart} = value;
     return (
         <div className ="container-fluid">
-            {cart.map(item => {
-                return <CartItem key={item.id} item ={item} value = {value} />;
+            {cart.map(item => {               
+                return item.inCart.map((innerElement,index)=>{
+                    
+                    if (item.inCart[index]===true){
+                        return <CartItem key={item.id} item ={item} value = {value} index={index}/>;
+                    }
+                })
             })}
         </div>
     )
