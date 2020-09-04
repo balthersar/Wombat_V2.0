@@ -1,12 +1,10 @@
 import React from 'react'
 
 export default function CartItem({item ,value,index}) {
-    const {id,title,img, price,size ,total,count} = item;
+    const {id,title,img,variant} = item;
     const {increment, decrement, removeItem}  = value;
-    /*inCart.map((value, index) =>{
-        if (inCart[index]=true){
-       */     
-   console.log(index);
+    
+   
     return (
         <div className="row my-2 text-capitalize text-center">
             <div className = "col-10 mx-auto col-lg-1">
@@ -18,29 +16,32 @@ export default function CartItem({item ,value,index}) {
             </div>
             <div className = "col-10 mx-auto col-lg-1">
                 <span className="d-lg-none">Größe: </span>
-                {size[index]}
+                {variant[index].size}
             </div>
             <div className = "col-10 mx-auto col-lg-1">
                 <span className="d-lg-none">Preis: </span>
-                {price[index]} €
+                {variant[index].price} €
             </div>
             <div className = "col-10 mx-auto col-lg-2 my-2 my-lg-0">
                 <div className="d-flex justify-content-center">
                     <div>
-                        <span className="btn btn-white mx-1 text-white" onClick ={()=>decrement(id)}>-</span>
-                        <span className="btn btn-white mx-1 text-white">{count[index]}</span>
-                        <span className="btn btn-white mx-1 text-white" onClick ={()=>increment(id)}>+</span>
+                    
+                        <span className="btn btn-white mx-1 text-white" onClick ={()=>
+                            decrement(id, variant[index].size)}>-</span>
+                        <span className="btn btn-white mx-1 text-white">{variant[index].count}</span>
+                        <span className="btn btn-white mx-1 text-white" onClick ={()=>
+                            increment(id, variant[index].size)}>+</span>
                     
                     </div>
                 </div>    
             </div>
             <div className = "col-10 mx-auto col-lg-1">
-                <div className="cart-icon" onClick ={()=>removeItem(id)}>
+                <div className="cart-icon" onClick ={()=>removeItem(id,variant[index].size)}>
                     <i className="fas fa-trash"></i>
                 </div>
             </div>
             <div className = "col-10 mx-auto col-lg-1">
-                <strong>{total[index]} €</strong>
+                <strong>{variant[index].total} €</strong>
             </div>
         </div>
     )

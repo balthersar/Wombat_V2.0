@@ -6,17 +6,21 @@ import PropTypes from 'prop-types';
 
 export default class Product extends Component {
     render() {
-        const {id, title, img, price, inCart, available} = this.props.product;
-        
-        
-        // Check if all sizes of wombats are in the cart
-        function isTrue(element, index, array) {
-            return element === true;
-        }
-        const allVariantsInCart= (inCart.every(isTrue));
+        const {id, title, img, variant} = this.props.product;
+        function isTrue(element, index, array) {return element === true;}
 
-        const minPrice = Math.min.apply(Math, price);
-        const maxPrice = Math.max.apply(Math, price);
+        // Check if minimum one variant of product is available
+        const variantAvailable = variant.map((value, index)=>{return value.available});
+        const oneOrMoreVariantsAvailable = variantAvailable.every(isTrue);
+
+        // Check if all variants of wombats are in the cart
+        const variantsInCart = variant.map((value, index)=>{return value.inCart});
+        const allVariantsInCart= variantsInCart.every(isTrue);
+
+        //get the cheapest and the most expensive variant to show in kollektion list
+        const allPricesOfVariant = variant.map((value, index)=>{return value.price});
+        const minPrice = Math.min.apply(Math, allPricesOfVariant);
+        const maxPrice = Math.max.apply(Math, allPricesOfVariant);
         
         return (
             <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3" >
@@ -30,8 +34,8 @@ export default class Product extends Component {
                             <Link to="/details">
                                 <img src={img} alt ="product" className="card-img-top" />
                             </Link>
-                            {/* Button Warenkorb nur bei verfügbaren Artikel */}
-                            {available ?(
+                            {/* Button arenkorb nur bei verfügbaren Artikel */}
+                            {oneOrMoreVariantsAvailable ?(
                             <button 
                             className="cart-btn"
                             disabled = {allVariantsInCart ? true : false}
@@ -49,7 +53,9 @@ export default class Product extends Component {
                                     )} 
                             </button>
                             ):(null)}
+                            
                         </div>
+                        
                     )}
                     
                     </ProductConsumer>
@@ -57,11 +63,12 @@ export default class Product extends Component {
                     
                     
                     {/* Card Footer*/}
+                    
                     <div className="card-footer d-flex justify-content-between">
                         <p className="text-blue font-itaic align-self-center mb-0">
                             {title}
                         </p>
-                        {available ?(
+                        {oneOrMoreVariantsAvailable ?(
                             null
                         ):<p className="soldOutWaterMark text-red font-italic mb-0"> Ausverkauft</p>};
                     

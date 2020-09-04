@@ -11,14 +11,15 @@ export default class Modal extends Component {
             <ProductConsumer>
                 {(value) => {
                     const {modalOpen, closeModal, addToCart, changeSize} =value;
-                    const {id, img, title, selectedSize, price, size} = value.modalProduct;
+                    const {id, img, title, selectedSize, variant} = value.modalProduct;
                 
                     //create list of variants for the customer to choose from the database of the current variant:
-                    const listVariants = price.map((value, index) =>
-                        <h5 className= {size[index]===selectedSize ? 'text-muted btn border border-dark font-weight-bold':'text-muted btn'}
-                        onClick ={()=>{changeSize(id, size[index]);}}
+                    const listVariants = variant.map((value, index) =>
+                        
+                        <h5  key={value.id} className= {variant[index].size===selectedSize ? 'text-muted btn border border-dark font-weight-bold':'text-muted btn'}
+                        onClick ={()=>{changeSize(id, variant[index].size);}}
                         >
-                        {size[index]}: {price[index]} €
+                        {variant[index].size}: {variant[index].price} €
                         </h5>
                     );
 
@@ -37,7 +38,7 @@ export default class Modal extends Component {
                                             }}>
                                                 <span >&times;</span>
                                         </button>
-                                        <h5>Artikel im Warenkorb</h5>
+                                        <h5>Artikel zum Warenkorb hinzufügen:</h5>
                                         <img src={img} className="img-fluid" alt="product"/>
                                         <h5>{title}</h5>
                                         <p>Wähle eine Größe:</p>
