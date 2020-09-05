@@ -49,14 +49,14 @@ export default class Modal extends Component {
                         <ModalContainer>
                             <div className="container">
                                 <div className="row">
-                                    <div id="modal" className="col-8 mx-auto col-md-6 col-lg-4 text-center p-5">
+                                    <div id="modal" className="col-8 mx-auto col-md-6 col-lg-4 text-center p-4">
                                         <button className="abortButton" 
                                             onClick ={()=>{
                                                 closeModal()
                                             }}>
                                                 <span >&times;</span>
                                         </button>
-                                        <h5>Artikel zum Warenkorb hinzufügen:</h5>
+                                        <h5>Artikel hinzufügen:</h5>
                                         <img src={img} className="img-fluid" alt="product"/>
                                         <h5>{title}</h5>
                                         <p>Wähle eine Größe:</p>
@@ -88,7 +88,7 @@ export default class Modal extends Component {
                                         <Link to='/'>
                                             <ButtonContainer 
                                                 onClick ={()=>{
-                                                    addToCart(id);
+                                                    
                                                     closeModal()
                                                 }}>
                                                 Zur Kollektion
@@ -96,7 +96,7 @@ export default class Modal extends Component {
                                         </Link>
                                         <Link to='/cart'>
                                             <ButtonContainer cart onClick ={()=>{
-                                                addToCart(id);
+                                                
                                                 closeModal()
                                             }}>
                                                 Zum Warenkorb

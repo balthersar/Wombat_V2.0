@@ -1,8 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {ButtonContainer} from '../Button';
 
 export default function CartTotals({value}) {
-    const {cartSubTotal, cartTax, cartTotal, clearCart} = value;
+    const {cartSubTotal, cartTax, cartTotal, clearCart, openCheckout} = value;
     return (
         <React.Fragment>
             <div className="container">
@@ -26,6 +27,12 @@ export default function CartTotals({value}) {
                             <span className="text-title">Zu zahlen:</span>
                             <strong>{cartTotal} €</strong>
                         </h5>
+                        <ButtonContainer 
+                            onClick ={()=>{              
+                                openCheckout()
+                            }}>
+                            Zur Kasse
+                        </ButtonContainer>
                     </div>
                 </div>
             </div>

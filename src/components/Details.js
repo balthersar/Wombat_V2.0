@@ -89,7 +89,7 @@ export default class Details extends Component {
                                             </p>
                                             ):(null)
                                         } 
-                                        {selectedSizeAvailable && !selectedSizeInCart ? (
+                                        {selectedSizeAvailable  ? (
                                             null
                                             ):(<p className="text-red font-italic mb-0"> Diese Größe ist derzeit leider nicht verfügbar </p>)
                                         } 
