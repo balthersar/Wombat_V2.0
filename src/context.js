@@ -166,27 +166,30 @@ class ProductProvider extends Component {
     removeItem = (id, size) => {
         let tempProducts = [...this.state.products];
         let tempCart = [...this.state.cart];
-        
         const index = tempProducts.indexOf(this.getItem(id));
         let removedProduct = tempProducts[index];
-        function isFalse(element, index, array) {
-            return element === false;
-        }
-        console.log(removedProduct)
-        
-        removedProduct.size.map((value, index) =>{
-            if(value===size){
-                removedProduct.inCart[index] = false;
-                removedProduct.count[index] = 0;
-                removedProduct.total[index] = 0;
+        //change product states to not in Cart
+        removedProduct.variant.map((value, index) =>{
+            if(removedProduct.variant[index].size===size){
+                removedProduct.variant[index].inCart = false;
+                removedProduct.variant[index].count = 0;
+                removedProduct.variant[index].total = 0;
             }
             return null
         })
-        if (removedProduct.inCart.every(isFalse)){
-            tempCart = tempCart.filter(item => item.id !== id);
-        }else{
+
+        // Check if minimum one variant of product is inCart
+        function isTrue(element, index, array) {return element === true;}
+        const variantInCart = removedProduct.variant.map((value, index)=>{return value.inCart});
+        const oneOrMoreVariantInCart = variantInCart.some(isTrue);
+
+        //delete product from cart if no variant is anymore in cart
+        if (oneOrMoreVariantInCart ===true){
             tempCart = tempCart.filter(item => item.id !== id);
             tempCart = [...tempCart,removedProduct]
+        }else{
+            tempCart = tempCart.filter(item => item.id !== id);
+
         }
 
         this.setState(() => {
