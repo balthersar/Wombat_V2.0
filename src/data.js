@@ -10,7 +10,7 @@ export const storeProducts = [
     img: "img/Produkte/Ahorn/Ahorn1_1080_720.jpg",
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
-      { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
+      { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:false},
     ],
     
     selectedSize:"Groß", //Groß, Mini
@@ -27,12 +27,6 @@ export const storeProducts = [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:false},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:false},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[false,false],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:

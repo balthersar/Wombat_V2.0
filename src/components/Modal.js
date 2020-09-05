@@ -23,6 +23,24 @@ export default class Modal extends Component {
                         </h5>
                     );
 
+                    //check if current selected size variant is in cart and available:
+                    let selectedSizeInCart=false;
+                    let seletectedSizeCount =0;
+                    let selectedSizeAvailable =false;
+                    variant.map((value, index) =>{
+                        if (selectedSize===variant[index].size && variant[index].inCart===true){
+                            selectedSizeInCart = true
+                            seletectedSizeCount=variant[index].count
+                            selectedSizeAvailable=variant[index].available
+                            return null
+                        }else if(selectedSize===variant[index].size){
+                            selectedSizeAvailable=variant[index].available
+                            return null
+    
+                        }else {return null}
+                    });
+               
+
                     if (!modalOpen){
                         return null;
                     }
@@ -47,13 +65,33 @@ export default class Modal extends Component {
                                                     {listVariants}                                                   
                                                 </div>
                                         </div>
+                                        <div className="column">
+                                            {selectedSizeInCart ? (
+                                                <p className=" mb-0" >
+                                                    {" "}
+                                                    Produkt in {selectedSize} bereits {seletectedSizeCount}x im Warenkorb
+                                                </p>
+                                            ):(null)} 
+                                        </div>
+                                        {selectedSizeAvailable ?
+                                            [selectedSizeInCart ? (
+                                            <ButtonContainer 
+                                                    onClick ={()=>{addToCart(id);}}>
+                                                    Erneut Hinzufügen
+                                            </ButtonContainer>
+                                            ):(<ButtonContainer 
+                                                    onClick ={()=>{addToCart(id);}}>
+                                                    Hinzufügen
+                                            </ButtonContainer>)]:[
+                                                <p className="text-red font-italic mb-0"> Diese Größe ist derzeit leider nicht verfügbar </p>
+                                            ]}
                                         <Link to='/'>
                                             <ButtonContainer 
                                                 onClick ={()=>{
                                                     addToCart(id);
                                                     closeModal()
                                                 }}>
-                                                Weiter Shoppen
+                                                Zur Kollektion
                                             </ButtonContainer>
                                         </Link>
                                         <Link to='/cart'>

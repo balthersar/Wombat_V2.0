@@ -11,7 +11,7 @@ export default class Details extends Component {
             <DetailWrapper>
             <ProductConsumer>
                 {(value) => {
-                    const {changeSize} = value;
+                    const {changeSize, addToCart} = value;
                     const {id, company, img, info, title, selectedSize, variant} = value.detailProduct;
                     const listVariants = variant.map((value, index) =>
                         <h5 className= {variant[index].size===selectedSize ? 'btn border border-white text-white font-weight-bold':'btn text-white text-dark'}
@@ -26,11 +26,24 @@ export default class Details extends Component {
                     }
                     // Check if minimum one variant of product is available
                     const variantAvailable = variant.map((value, index)=>{return value.available});
-                    const oneOrMoreVariantsAvailable = variantAvailable.every(isTrue);
+                    const oneOrMoreVariantsAvailable = variantAvailable.some(isTrue);
 
-                    // Check if all variants of wombats are in the cart
-                    const variantsInCart = variant.map((value, index)=>{return value.inCart});
-                    const allVariantsInCart= variantsInCart.every(isTrue);
+                    ///check if current selected size variant is in cart and available:
+                    let selectedSizeInCart=false;
+                    let seletectedSizeCount =0;
+                    let selectedSizeAvailable =false;
+                    variant.map((value, index) =>{
+                        if (selectedSize===variant[index].size && variant[index].inCart===true){
+                            selectedSizeInCart = true
+                            seletectedSizeCount=variant[index].count
+                            selectedSizeAvailable=variant[index].available
+                            return null
+                        }else if(selectedSize===variant[index].size){
+                            selectedSizeAvailable=variant[index].available
+                            return null
+    
+                        }else {return null}
+                    });
 
                     return (
                         <div className="py-2">
@@ -58,35 +71,45 @@ export default class Details extends Component {
                                     <p className="text-muted lead">{info}</p>
                                     {/* Auswahl des Produktes (Größe) */}
                                     <div className="column">
-                                                <div className="row d-flex justify-content-center" >
+                                                <div className="row d-flex justify-content-center mb-0" >
                                                     {listVariants}                                                   
                                                 </div>
                                     </div>
                                     {/* Model ist derzeit ausverkauft */}
                                     {oneOrMoreVariantsAvailable ?(
                                         null
-                                        ):<p className="text-red font-italic mb-0"> Derzeit leider nicht verfügbar </p>
+                                        ):<p className="text-red font-italic mb-0"> Dieses Produkt ist derzeit leider nicht verfügbar </p>
                                     }
                                     {/*buttons */}
-                                    
                                     <div>
+                                        {selectedSizeInCart ? (
+                                            <p className=" mb-0" >
+                                                {" "}
+                                                Produkt in {selectedSize} bereits {seletectedSizeCount}x im Warenkorb
+                                            </p>
+                                            ):(null)
+                                        } 
+                                        {selectedSizeAvailable && !selectedSizeInCart ? (
+                                            null
+                                            ):(<p className="text-red font-italic mb-0"> Diese Größe ist derzeit leider nicht verfügbar </p>)
+                                        } 
                                         <Link to='/'>
                                             <ButtonContainer>
                                                 Zurück 
                                             </ButtonContainer>
                                         </Link>
-                                        {oneOrMoreVariantsAvailable ?(
-                                        <ButtonContainer 
-                                            cart
-                                            disabled={allVariantsInCart?true:false}
-                                            onClick= {()=>{
-                                                value.openModal(id);
-                                                
-                                            }}
-                                        >
-                                            {allVariantsInCart? 'Im Warenkorb':"In den Warenkorb"}
-                                        </ButtonContainer>
-                                        ):null}
+                                        {selectedSizeAvailable ?
+                                            [(selectedSizeInCart ? (
+                                                <ButtonContainer 
+                                                        onClick ={()=>{addToCart(id);}}>
+                                                        Erneut Hinzufügen
+                                                </ButtonContainer>
+                                                ):(<ButtonContainer 
+                                                        onClick ={()=>{addToCart(id);}}>
+                                                        Hinzufügen
+                                                </ButtonContainer>))
+                                            ]:[null]
+                                        }
                                     </div>
                                 </div>
                             </div>

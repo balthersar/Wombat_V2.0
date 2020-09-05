@@ -60,8 +60,8 @@ class ProductProvider extends Component {
         product.variant.map((value, index) =>{
             if (product.variant[index].size===product.selectedSize){
                 product.variant[index].inCart= true;
-                product.variant[index].total=product.variant[index].price
-                product.variant[index].count =  1;
+                product.variant[index].total=product.variant[index].total + product.variant[index].price
+                product.variant[index].count = product.variant[index].count + 1;
             }
             return null
         });

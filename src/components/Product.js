@@ -11,11 +11,7 @@ export default class Product extends Component {
 
         // Check if minimum one variant of product is available
         const variantAvailable = variant.map((value, index)=>{return value.available});
-        const oneOrMoreVariantsAvailable = variantAvailable.every(isTrue);
-
-        // Check if all variants of wombats are in the cart
-        const variantsInCart = variant.map((value, index)=>{return value.inCart});
-        const allVariantsInCart= variantsInCart.every(isTrue);
+        const oneOrMoreVariantsAvailable = variantAvailable.some(isTrue);
 
         //get the cheapest and the most expensive variant to show in kollektion list
         const allPricesOfVariant = variant.map((value, index)=>{return value.price});
@@ -36,22 +32,12 @@ export default class Product extends Component {
                             </Link>
                             {/* Button arenkorb nur bei verfügbaren Artikel */}
                             {oneOrMoreVariantsAvailable ?(
-                            <button 
-                            className="cart-btn"
-                            disabled = {allVariantsInCart ? true : false}
-                            onClick = {() => {
-                                value.openModal(id);
-                            }}
-                            >
-                                    {allVariantsInCart ? (
-                                        <p className="text-capitalize mb-0" disabled>
-                                            {" "}
-                                            Im Warenkorb
-                                        </p>
-                                    ):(
-                                        <i className=" fas fa-cart-plus"/>
-                                    )} 
-                            </button>
+                                <button 
+                                    className="cart-btn"
+                                    onClick = {() => {value.openModal(id);}}
+                                >
+                                    <i className=" fas fa-cart-plus"/>
+                                </button>
                             ):(null)}
                             
                         </div>
