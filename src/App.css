@@ -12,6 +12,7 @@ body{
   /*background: var(--mainWhite) !important;*/
   background-image: url('./images/wombat_background.jpg');
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
   min-height: 100vh;
   background: transparent\9;
