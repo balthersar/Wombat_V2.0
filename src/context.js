@@ -258,6 +258,14 @@ class ProductProvider extends Component {
             return { modalProduct: product }
         })
     }
+    changeSelectedImage = (id, imageIndex) => {
+        
+        const product = this.getItem(id);
+        product.selectedImageIndex = imageIndex;
+        this.setState(() => {
+            return { modalProduct: product }
+        })
+    }
     render() {
         return (
             <ProductContext.Provider value={{
@@ -270,7 +278,8 @@ class ProductProvider extends Component {
                 decrement: this.decrement,
                 removeItem: this.removeItem,
                 clearCart: this.clearCart,
-                changeSize: this.changeSize
+                changeSize: this.changeSize,
+                changeSelectedImage:this.changeSelectedImage
             }}>
                 {this.props.children}
             </ProductContext.Provider>

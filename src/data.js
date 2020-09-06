@@ -7,13 +7,17 @@ export const storeProducts = [
   {
     id: 1,
     title: "Ahorn",
-    img: "img/Produkte/Ahorn/Ahorn1_1080_720.jpg",
+    img: ["img/Produkte/Ahorn/Ahorn1_1080_720.jpg",
+          "img/Produkte/Ahorn/Ahorn2_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:false},
     ],
     
     selectedSize:"Groß", //Groß, Mini
+    
     company: "Wombat",
     info:
       "Diese Tasche besteht vollstäding aus Samt-Stoff",
@@ -22,7 +26,10 @@ export const storeProducts = [
   {
     id: 2,
     title: "Anemone",
-    img: "img/Produkte/Anemone/Anemone1_1080_720.jpg",
+    img: ["img/Produkte/Anemone/Anemone1_1080_720.jpg",
+          "img/Produkte/Anemone/Anemone2_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:false},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:false},
@@ -36,20 +43,15 @@ export const storeProducts = [
   {
     id: 3,
     title: "Azalee",
-    img: "img/Produkte/Azalee/Azalee1_1080_720.jpg",
+    img: ["img/Produkte/Azalee/Azalee1_1080_720.jpg",
+          "img/Produkte/Azalee/Azalee2_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
       { id: 3, price:30, size:"Sehr klein", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41,30],
-    size:["Groß", "Mini","Sehr klein"],
-    inCart:[false,false,false],
-    count:[0,0,0],
-    total:[0,0,0],
-    available:[true,true,true],
-    price1: 50, //Groß
-    price2: 41, //Mini
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -59,17 +61,28 @@ export const storeProducts = [
   {
     id: 4,
     title: "Black Panther",
-    img: "img/Produkte/Black_Panther/Black_Panther1_1080_720.jpg",
+    img: ["img/Produkte/Black_Panther/Black_Panther1_1080_720.jpg",
+          "img/Produkte/Black_Panther/Black_Panther2_1080_720.jpg",
+          "img/Produkte/Black_Panther/Black_Panther3_1080_720.jpg",
+          "img/Produkte/Black_Panther/Black_Panther4_1080_720.jpg",
+          "img/Produkte/Black_Panther/Black_Panther5_1080_720.jpg",
+          "img/Produkte/Black_Panther/Black_Panther6_1080_720.jpg",
+          "img/Produkte/Black_Panther/Black_Panther7_1080_720.jpg",
+          "img/Produkte/Black_Panther/Black_Panther8_1080_720.jpg",
+          "img/Produkte/Black_Panther/Black_Panther2_1080_720.jpg",
+          "img/Produkte/Black_Panther/Black_Panther3_1080_720.jpg",
+          "img/Produkte/Black_Panther/Black_Panther4_1080_720.jpg",
+          "img/Produkte/Black_Panther/Black_Panther5_1080_720.jpg",
+          "img/Produkte/Black_Panther/Black_Panther6_1080_720.jpg",
+          "img/Produkte/Black_Panther/Black_Panther7_1080_720.jpg",
+          "img/Produkte/Black_Panther/Black_Panther8_1080_720.jpg",
+
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -79,17 +92,14 @@ export const storeProducts = [
   {
     id: 5,
     title: "Blätterwald",
-    img: "img/Produkte/Blätterwald/Blätterwald1_1080_720.jpg",
+    img: ["img/Produkte/Blätterwald/Blätterwald1_1080_720.jpg",
+          "img/Produkte/Blätterwald/Blätterwald2_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -99,17 +109,14 @@ export const storeProducts = [
   {
     id: 6,
     title: "Eibe",
-    img: "img/Produkte/Eibe/Eibe1_1080_720.jpg",
+    img: ["img/Produkte/Eibe/Eibe1_1080_720.jpg",
+          "img/Produkte/Eibe/Eibe2_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -119,17 +126,14 @@ export const storeProducts = [
   {
     id: 7,
     title: "Eisrose",
-    img: "img/Produkte/Eisrose/Eisrose1_1080_720.jpg",
+    img: ["img/Produkte/Eisrose/Eisrose1_1080_720.jpg",
+          "img/Produkte/Eisrose/Eisrose2_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -139,17 +143,14 @@ export const storeProducts = [
   {
     id: 8,
     title: "Erle",
-    img: "img/Produkte/Erle/Erle1_1080_720.jpg",
+    img: ["img/Produkte/Erle/Erle1_1080_720.jpg",
+          "img/Produkte/Erle/Erle2_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -159,17 +160,13 @@ export const storeProducts = [
   {
     id: 9,
     title: "Graue Maus",
-    img: "img/Produkte/Graue_Maus/Graue_Maus1_1080_720.jpg",
+    img: ["img/Produkte/Graue_Maus/Graue_Maus1_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -179,17 +176,13 @@ export const storeProducts = [
   {
     id: 10,
     title: "Holunderbeere",
-    img: "img/Produkte/Holunderbeere/Holunderbeere1_1080_720.jpg",
+    img: ["img/Produkte/Holunderbeere/Holunderbeere1_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -199,17 +192,13 @@ export const storeProducts = [
   {
     id: 11,
     title: "Kirschblüte",
-    img: "img/Produkte/Kirschblüte/Kirschblüte1_1080-720.jpg",
+    img: ["img/Produkte/Kirschblüte/Kirschblüte1_1080-720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -219,17 +208,13 @@ export const storeProducts = [
   {
     id: 12,
     title: "Linde",
-    img: "img/Produkte/Linde/Linde1_1080-720.jpg",
+    img: ["img/Produkte/Linde/Linde1_1080-720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -239,17 +224,13 @@ export const storeProducts = [
   {
     id: 13,
     title: "Mystic Lynx",
-    img: "img/Produkte/Mystic_Lynx/MysticLynx1_1080_720.jpg",
+    img: ["img/Produkte/Mystic_Lynx/MysticLynx1_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -259,17 +240,13 @@ export const storeProducts = [
   {
     id: 14,
     title: "Nordmanntanne",
-    img: "img/Produkte/Nordmanntanne/Nordmanntanne1_1080_720.jpg",
+    img: ["img/Produkte/Nordmanntanne/Nordmanntanne1_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -279,17 +256,13 @@ export const storeProducts = [
   {
     id: 15,
     title: "Orchidee",
-    img: "img/Produkte/Orchidee/Orchidee1_1080_720.jpg",
+    img: ["img/Produkte/Orchidee/Orchidee1_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -299,17 +272,13 @@ export const storeProducts = [
   {
     id: 16,
     title: "Robinie",
-    img: "img/Produkte/Robinie/Robinie1_1080_720.jpg",
+    img: ["img/Produkte/Robinie/Robinie1_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:false},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:false},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[false,false],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -319,17 +288,13 @@ export const storeProducts = [
   {
     id: 17,
     title: "Schneeglöckchen",
-    img: "img/Produkte/Schneeglöckchen/Schneeglöckchen1_1080_720.jpg",
+    img: ["img/Produkte/Schneeglöckchen/Schneeglöckchen1_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -339,17 +304,13 @@ export const storeProducts = [
   {
     id: 18,
     title: "Schwarzwald",
-    img: "img/Produkte/Schwarzwald/Schwarzwald1_1080_720.jpg",
+    img: ["img/Produkte/Schwarzwald/Schwarzwald1_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -359,17 +320,13 @@ export const storeProducts = [
   {
     id: 19,
     title: "Sonnenblume",
-    img: "img/Produkte/Sonnenblume/Sonnenblume1_1080_720.jpg",
+    img: ["img/Produkte/Sonnenblume/Sonnenblume1_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -379,17 +336,13 @@ export const storeProducts = [
   {
     id: 20,
     title: "Ulme",
-    img: "img/Produkte/Ulme/Ulme1_1080_720.jpg",
+    img: ["img/Produkte/Ulme/Ulme1_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -399,17 +352,13 @@ export const storeProducts = [
   {
     id: 21,
     title: "Wacholder",
-    img: "img/Produkte/Wacholder/Wachholder1_1080_720.jpg",
+    img: ["img/Produkte/Wacholder/Wachholder1_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -419,17 +368,13 @@ export const storeProducts = [
   {
     id: 22,
     title: "Weide",
-    img: "img/Produkte/Weide/Weide1_1080_720.jpg",
+    img: ["img/Produkte/Weide/Weide1_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -439,17 +384,13 @@ export const storeProducts = [
   {
     id: 23,
     title: "Wild Leo",
-    img: "img/Produkte/Wild_Leo/WildLeo1_1080_720.jpg",
+    img: ["img/Produkte/Wild_Leo/WildLeo1_1080_720.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -459,17 +400,13 @@ export const storeProducts = [
   {
     id: 24,
     title: "Gutschein",
-    img: "img/Produkte/Gutschein/Gutschein1.jpg",
+    img: ["img/Produkte/Gutschein/Gutschein1.jpg",
+    ],
+    selectedImageIndex:0,
     variant: [
       { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
       { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
     ],
-    price:[50,41],
-    size:["Groß", "Mini"],
-    inCart:[false,false],
-    count:[0,0],
-    total:[0,0],
-    available:[true,true],
     selectedSize:"Groß", //Groß, Mini
     company: "Wombat",
     info:
@@ -482,17 +419,13 @@ export const storeProducts = [
 export const detailProduct = {
   id: 1,
   title: "Ahorn",
-  img: "img/Produkte/Ahorn/Ahorn1_1080_720.jpg",
+  img: ["img/Produkte/Ahorn/Ahorn1_1080_720.jpg",
+  ],
+  selectedImageIndex:0,
   variant: [
     { id: 1, price:50, size:"Groß", inCart:false, count:0, total:0, available:true},
     { id: 2, price:44, size:"Mini", inCart:false, count:0, total:0, available:true},
   ],
-  price:[50,44],
-  size:["Groß", "Mini"],
-  inCart:[false,false],
-  count:[0,0],
-  total:[0,0],
-  available:[true,true],
   selectedSize:"Groß", //Groß, Mini
   company: "Wombat",
   info:

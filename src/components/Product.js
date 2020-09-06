@@ -24,45 +24,44 @@ export default class Product extends Component {
                     <ProductConsumer>
                     {/* Card Image */}
                     {value => (
-                        <div className="img-container p-3" 
-                        onClick={() => value.handleDetail(id)}
-                        >
-                            <Link to="/details">
-                                <img src={img} alt ="product" className="card-img-top" />
-                            </Link>
-                            {/* Button arenkorb nur bei verfügbaren Artikel */}
-                            {oneOrMoreVariantsAvailable ?(
-                                <button 
-                                    className="cart-btn"
-                                    onClick = {() => {value.openModal(id);}}
-                                >
-                                    <i className=" fas fa-cart-plus"/>
-                                </button>
-                            ):(null)}
-                            
-                        </div>
+                        <div className="main-container">
+                            <div className="img-container p-3" 
+                            onClick={() => value.handleDetail(id)}
+                            >
+                                <Link to="/details">
+                                    <img src={img[0]} alt ="product" className="card-img-top" />
+                                </Link>
+                                {/* Button arenkorb nur bei verfügbaren Artikel */}
+                                {oneOrMoreVariantsAvailable ?(
+                                    <button 
+                                        className="cart-btn"
+                                        onClick = {() => {value.openModal(id);}}
+                                    >
+                                        <i className=" fas fa-cart-plus"/>
+                                    </button>
+                                ):(null)}
+                                
+                            </div>
                         
+                            <div className="card-footer d-flex justify-content-between">
+                                <p className=" font-italic align-self-center mb-0 " 
+                                    onClick={() => value.handleDetail(id)}>
+                                        <Link to="/details" className="text-decoration-none">{title}</Link>
+
+                                </p>
+                                {oneOrMoreVariantsAvailable ?(
+                                    null
+                                ):<p className="soldOutWaterMark text-red font-italic mb-0"> Ausverkauft</p>};
+                            
+                                <h5 className="text-blue font-italic mb-0">
+                                    {minPrice} - {maxPrice}
+                                    <span className="mr-1">€</span>
+                                </h5>
+                            </div>
+                        </div>
                     )}
                     
                     </ProductConsumer>
-                    
-                    
-                    
-                    {/* Card Footer*/}
-                    
-                    <div className="card-footer d-flex justify-content-between">
-                        <p className="text-blue font-itaic align-self-center mb-0">
-                            {title}
-                        </p>
-                        {oneOrMoreVariantsAvailable ?(
-                            null
-                        ):<p className="soldOutWaterMark text-red font-italic mb-0"> Ausverkauft</p>};
-                    
-                        <h5 className="text-blue font-italic mb-0">
-                            {minPrice} - {maxPrice}
-                            <span className="mr-1">€</span>
-                        </h5>
-                    </div>
                 </div>
             </ProductWrapper>
         )
@@ -85,6 +84,7 @@ const ProductWrapper = styled.div`
         transition:all 0.5s linear;
     }
     .card-footer{
+        
         background:transparent;
         border-top:transparent;
         transition:all 0.5s linear;
