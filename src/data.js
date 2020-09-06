@@ -7,7 +7,7 @@ export const storeProducts = [
   {
     id: 1,
     title: "Ahorn",
-    //maximum 18 images for each product
+    //maximum 12 images for each product
     img: ["img/Produkte/Ahorn/Ahorn1_1080_720.jpg",
           "img/Produkte/Ahorn/Ahorn2_1080_720.jpg",
     ],
@@ -27,7 +27,7 @@ export const storeProducts = [
   {
     id: 2,
     title: "Anemone",
-    //maximum 18 images for each product
+    //maximum 12 images for each product
     img: ["img/Produkte/Anemone/Anemone1_1080_720.jpg",
           "img/Produkte/Anemone/Anemone2_1080_720.jpg",
     ],
@@ -45,7 +45,7 @@ export const storeProducts = [
   {
     id: 3,
     title: "Azalee",
-    //maximum 18 images for each product
+    //maximum 12 images for each product
     img: ["img/Produkte/Azalee/Azalee1_1080_720.jpg",
           "img/Produkte/Azalee/Azalee2_1080_720.jpg",
     ],
@@ -64,7 +64,7 @@ export const storeProducts = [
   {
     id: 4,
     title: "Black Panther",
-    //maximum 18 images for each product
+    //maximum 12 images for each product
     img: ["img/Produkte/Black_Panther/Black_Panther1_1080_720.jpg",
           "img/Produkte/Black_Panther/Black_Panther2_1080_720.jpg",
           "img/Produkte/Black_Panther/Black_Panther3_1080_720.jpg",
@@ -77,9 +77,7 @@ export const storeProducts = [
           "img/Produkte/Black_Panther/Black_Panther3_1080_720.jpg",
           "img/Produkte/Black_Panther/Black_Panther4_1080_720.jpg",
           "img/Produkte/Black_Panther/Black_Panther5_1080_720.jpg",
-          "img/Produkte/Black_Panther/Black_Panther6_1080_720.jpg",
-          "img/Produkte/Black_Panther/Black_Panther7_1080_720.jpg",
-          "img/Produkte/Black_Panther/Black_Panther8_1080_720.jpg",
+
 
     ],
     selectedImageIndex:0,
@@ -98,6 +96,7 @@ export const storeProducts = [
     title: "Blätterwald",
     img: ["img/Produkte/Blätterwald/Blätterwald1_1080_720.jpg",
           "img/Produkte/Blätterwald/Blätterwald2_1080_720.jpg",
+          "img/Produkte/Blätterwald/Blätterwald3_1080_720.jpg",
     ],
     selectedImageIndex:0,
     variant: [

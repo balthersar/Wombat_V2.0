@@ -20,9 +20,9 @@ export default class Details extends Component {
                         {variant[index].size}: {variant[index].price} €
                         </h5>
                     );
-                    var maxImagesPerRow = 6;
+                    var maxImagesPerRow = 5;
                     var listImagesFirstRow = img.slice(0, maxImagesPerRow).map((value, index) =>{
-                        return (<div className={index===selectedImageIndex?'border border-white ':'cursor-pointer'}
+                        return (<div className={index===selectedImageIndex?'border border-white ':'cursor-pointer '}
                                         onClick ={()=>{changeSelectedImage(id, index);}}>
                                         <img src={img[index]} className= "img-fluid" alt="product" width="100%"/>
                                 </div>)
@@ -70,20 +70,23 @@ export default class Details extends Component {
                             {/*end title */}
                             {/*product info */}
                             <div className="row">
-                                <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
+                                <div className="col-10 mx-auto col-md-6 my-3 text-capitalize ">
                                     <img src={img[selectedImageIndex]} className= "img-fluid" alt="product"/>
-                                    <div class="carousel-container">
-                                        <div class= "carousel-slide">
+                                    <i class="fas fa-angle-left fa-7x" id="prevBtn" onClick ={()=>{changeSelectedImage(id, selectedImageIndex-1);}}></i>
+                                    <i class="fas fa-angle-right fa-7x" id="nextBtn" onClick ={()=>{changeSelectedImage(id, selectedImageIndex+1);}}></i>
+                                
+                                    <div className="carousel-container  ">
+                                        <div className= "carousel-slide  ">
                                             {listImagesFirstRow}   
                                         </div>                                                
                                     </div>
-                                    <div class="carousel-container">
-                                        <div class= "carousel-slide">
+                                    <div className="carousel-container">
+                                        <div className= "carousel-slide">
                                             {listImagesSecondRow}   
                                         </div>                                                
                                     </div>
-                                </div>
-                                
+                                    </div>
+                                    
 
                                 <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
                                     <h2>model:{title}</h2>
@@ -155,22 +158,38 @@ const DetailWrapper = styling.nav`
     color:white;
     z-index: -99;
 }
-.thumb{
-    margin-top:1rem;
-    max-width:100%;
-    max-height: auto;
+.fa-angle-right{
+    color: transparent;
+    position: relative;
+    float: right;
+    bottom:170px;
     cursor:pointer;
-    display:flex;
-    margin-right:5rem;
-}
-.thumb .img{
     
-    margin-right:5rem;
+  }
+  .fa-angle-left{
+    color: transparent;
+    position: relative;
+    float: left;
+    right: 0px;
+    bottom: 170px;
+    cursor:pointer;
+  }
+@media (hover: hover) {
+    .fa-angle-left:hover{
+        color:black;
+        opacity:0.5;
+    }
+    .fa-angle-right:hover{
+    color:black;
+    opacity:0.5;
+    }
 }
+  
 .carousel-container{
     overflow:hidden;
-    margin: auto;
+    margin:  auto;
     margin-top:5px;
+    position:relative;
     
   }
   .carousel-slide{

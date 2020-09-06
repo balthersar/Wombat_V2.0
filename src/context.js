@@ -261,7 +261,14 @@ class ProductProvider extends Component {
     changeSelectedImage = (id, imageIndex) => {
         
         const product = this.getItem(id);
-        product.selectedImageIndex = imageIndex;
+        const maxImageIndex = product.img.length;
+        if(imageIndex<0){
+            product.selectedImageIndex = maxImageIndex-1;
+        }else if(imageIndex===maxImageIndex){
+            product.selectedImageIndex = 0;
+        }
+        else{product.selectedImageIndex = imageIndex;}
+        
         this.setState(() => {
             return { modalProduct: product }
         })
