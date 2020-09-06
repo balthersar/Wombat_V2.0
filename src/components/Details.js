@@ -20,18 +20,17 @@ export default class Details extends Component {
                         {variant[index].size}: {variant[index].price} €
                         </h5>
                     );
-                    let imgZeroToNine = img.slice(0, 9)
-                    var listImagesFirstRow = imgZeroToNine.map((value, index) =>{
+                    var maxImagesPerRow = 6;
+                    var listImagesFirstRow = img.slice(0, maxImagesPerRow).map((value, index) =>{
                         return (<div className={index===selectedImageIndex?'border border-white ':'cursor-pointer'}
                                         onClick ={()=>{changeSelectedImage(id, index);}}>
                                         <img src={img[index]} className= "img-fluid" alt="product" width="100%"/>
                                 </div>)
                     });
-                    let imgTenToNineteen = img.slice(9, 18)
-                    var listImagesSecondRow = imgTenToNineteen.map((value, index) =>{
-                        return (<div className={index+9===selectedImageIndex?'border border-white ':'cursor-pointer'}
-                                        onClick ={()=>{changeSelectedImage(id, index+9);}}>
-                                        <img src={img[index+9]} className= "img-fluid" alt="product" width="100%"/>
+                    var listImagesSecondRow = img.slice(maxImagesPerRow, maxImagesPerRow*2).map((value, index) =>{
+                        return (<div className={index+maxImagesPerRow===selectedImageIndex?'border border-white ':'cursor-pointer'}
+                                        onClick ={()=>{changeSelectedImage(id, index+maxImagesPerRow);}}>
+                                        <img src={img[index+maxImagesPerRow]} className= "img-fluid" alt="product" width="100%"/>
                                 </div>)
                     });
                 
@@ -169,7 +168,7 @@ const DetailWrapper = styling.nav`
     margin-right:5rem;
 }
 .carousel-container{
-    
+    overflow:hidden;
     margin: auto;
     margin-top:5px;
     
@@ -181,8 +180,10 @@ const DetailWrapper = styling.nav`
 
   }
   .carousel-slide img{
-    height: 50px;
-    width: 50px;
+    max-height: 20px;
+    height:auto;
+    max-width:20px;
+    width:auto;
     margin:5px;
     transform: translate3d(0,0,0);
     -webkit-transform: translate3d(0,0,0);
