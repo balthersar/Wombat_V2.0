@@ -20,7 +20,7 @@ export default class Details extends Component {
                         {variant[index].size}: {variant[index].price} €
                         </h5>
                     );
-                    var maxImagesPerRow = 5;
+                    var maxImagesPerRow = 6;
                     var listImagesFirstRow = img.slice(0, maxImagesPerRow).map((value, index) =>{
                         return (<div className={index===selectedImageIndex?'border border-white ':'cursor-pointer '}
                                         onClick ={()=>{changeSelectedImage(id, index);}}>
@@ -189,7 +189,9 @@ const DetailWrapper = styling.nav`
     overflow:hidden;
     margin:  auto;
     margin-top:5px;
+    width:100%;
     position:relative;
+    bottom:100px;
     
   }
   .carousel-slide{

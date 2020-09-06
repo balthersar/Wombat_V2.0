@@ -62,9 +62,17 @@ const FooterWrapper = styling.nav`
     width: 20px;
     height: 20px;
   }
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 500px){
       .social_media p{
           opacity:0;
       }
   }
+  @media screen and (max-width: 385px){
+    .social_media p{
+        opacity:0;
+    }
+    .footer .impressum{
+      display:block;
+  }
+}
 `
