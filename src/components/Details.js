@@ -64,7 +64,7 @@ export default class Details extends Component {
                         <div className="container py-5">
                             {/*title */}
                             <div className = "row">
-                                <div className="col-10 mx-auto text-center text-slanted text-blue my-5">
+                                <div className="col-10 mx-auto text-center text-slanted text-blue my-1">
                                     <h1>{title}</h1>
                                 </div>    
                             </div>             
@@ -72,10 +72,12 @@ export default class Details extends Component {
                             {/*product info */}
                             <div className="row">
                                 <div className="col-10 mx-auto col-md-6 my-3 text-capitalize ">
-                                    <img src={img[selectedImageIndex]} className= "img-fluid" alt="product"/>
-                                    <i class="fas fa-angle-left fa-7x" id="prevBtn" onClick ={()=>{changeSelectedImage(id, selectedImageIndex-1);}}></i>
-                                    <i class="fas fa-angle-right fa-7x" id="nextBtn" onClick ={()=>{changeSelectedImage(id, selectedImageIndex+1);}}></i>
-                                
+                                    <div className ="main-image">
+                                        <img src={img[selectedImageIndex]} className= "img-fluid" alt="product"/>
+                                        
+                                        <i class="fas fa-angle-left fa-7x" id="prevBtn" onClick ={()=>{changeSelectedImage(id, selectedImageIndex-1);}}></i>
+                                        <i class="fas fa-angle-right fa-7x" id="nextBtn" onClick ={()=>{changeSelectedImage(id, selectedImageIndex+1);}}></i>
+                                    </div>
                                     <div className="carousel-container  ">
                                         <div className= "carousel-slide  ">
                                             {listImagesFirstRow}   
@@ -159,21 +161,24 @@ const DetailWrapper = styling.nav`
     color:white;
     z-index: -99;
 }
+
 .fa-angle-right{
-    color: transparent;
-    position: relative;
+    color: red;
+    position: absolute;
     float: right;
-    bottom:170px;
+    right:15px;
     cursor:pointer;
+   
+    top:20%;
     
   }
   .fa-angle-left{
-    color: transparent;
-    position: relative;
+    color: orange;
+    position: absolute;
     float: left;
-    right: 0px;
-    bottom: 170px;
+    left: 15px;
     cursor:pointer;
+    top:20%;
   }
 @media (hover: hover) {
     .fa-angle-left:hover{
@@ -188,11 +193,9 @@ const DetailWrapper = styling.nav`
   
 .carousel-container{
     overflow:hidden;
-    margin:  auto;
-    margin-top:5px;
     width:100%;
     position:relative;
-    bottom:100px;
+    margin-top:5px;
     
   }
   .carousel-slide{
