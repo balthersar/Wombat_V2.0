@@ -163,7 +163,7 @@ const DetailWrapper = styling.nav`
 }
 
 .fa-angle-right{
-    color: red;
+    color: transparent;
     position: absolute;
     float: right;
     right:15px;
@@ -173,7 +173,7 @@ const DetailWrapper = styling.nav`
     
   }
   .fa-angle-left{
-    color: orange;
+    color: transparent;
     position: absolute;
     float: left;
     left: 15px;
