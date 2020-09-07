@@ -39,10 +39,13 @@ export default class Navbar extends Component{
                     
                 <ul className="nav-links">
                     <li className="nav-item ">
-                        <Link to="/" className="nav-link">Was ist Wombat</Link>
+                        <Link to="/" className="nav-link" onClick={navslide}>Was ist Wombat</Link>
                     </li>
                     <li className="nav-item ">
-                        <Link to="/kollektion" className="nav-link">Kollektion</Link>
+                        <Link to="/kollektion" className="nav-link" onClick={navslide}>Kollektion</Link>
+                    </li>
+                    <li className="nav-item ">
+                        <Link to="/cart" className="nav-link" onClick={navslide}>Warenkorb</Link>
                     </li>
                     
                     
@@ -98,8 +101,7 @@ const NavWrapper = styling.nav`
     .nav-links {
         display: flex;
         list-style: none;
-        margin-top:auto;
-        margin-bottom:auto;
+       
         width: 50%;
         height: 10%;
         justify-content: space-around;
@@ -153,11 +155,14 @@ const NavWrapper = styling.nav`
         }
         
         .nav-links {
+            display:block;
             left:0;
+            top:0;
+            margin-top:60px;
             position: fixed;
             background: var(--wombatGreen);
             width: 70%;
-            height:200vh;
+            height:100vh;
             flex-direction: column;
             clip-path: circle(50px at -90% -30%);
             -webkit-clip-path: circle(50px at -90% -30%);
