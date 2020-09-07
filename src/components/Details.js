@@ -73,7 +73,7 @@ export default class Details extends Component {
                             <div className="row">
                                 <div className="col-10 mx-auto col-md-6 my-3 text-capitalize ">
                                     <div className ="main-image">
-                                        <img src={img[selectedImageIndex]} className= "img-fluid" alt="product"/>
+                                        <img src={img[selectedImageIndex]}  alt="product"/>
                                         
                                         <i class="fas fa-angle-left fa-7x" id="prevBtn" onClick ={()=>{changeSelectedImage(id, selectedImageIndex-1);}}></i>
                                         <i class="fas fa-angle-right fa-7x" id="nextBtn" onClick ={()=>{changeSelectedImage(id, selectedImageIndex+1);}}></i>
@@ -162,24 +162,43 @@ const DetailWrapper = styling.nav`
     z-index: -99;
 }
 
+.main-image{
+    position: relative;
+    margin: 20px auto 0;
+    width: 100%;
+
+}
+.main-image img{
+    display: block;
+    position: relative;
+    width: 100%;
+    height:100%;
+}
 .fa-angle-right{
     color: transparent;
     position: absolute;
     float: right;
-    right:15px;
+    right:5%;
     cursor:pointer;
-   
-    top:20%;
-    
+    top:30%;
   }
   .fa-angle-left{
     color: transparent;
     position: absolute;
     float: left;
-    left: 15px;
+    left: 5%;
     cursor:pointer;
-    top:20%;
+    top:30%;
   }
+  @media screen and (max-width: 420px) {
+    .fa-angle-left{top:20%;left:5%;}
+    .fa-angle-right{top:20%;right:5%;}
+  }
+  @media screen and (max-width: 350px) {
+    .fa-angle-left{top:15%; }
+    .fa-angle-right{top:15%; }
+  }
+
 @media (hover: hover) {
     .fa-angle-left:hover{
         color:black;
