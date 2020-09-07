@@ -43,20 +43,19 @@ export default class Product extends Component {
                                 
                             </div>
                         
-                            <div className="card-footer d-flex justify-content-between">
-                                <p className=" font-italic align-self-center mb-0 " 
+                            <div className="card-footer justify-content-between">
+                                <p className=" card-footer-title font-italic align-self-center mb-0 " 
                                     onClick={() => value.handleDetail(id)}>
-                                        <Link to="/details" className="text-decoration-none">{title}</Link>
-
+                                    <Link to="/details" className="text-decoration-none">{title}
+                                        {oneOrMoreVariantsAvailable ?(
+                                                null
+                                        ):<p className="soldOutWaterMark text-red font-italic mb-0"> Ausverkauft</p>}
+                                    </Link>
                                 </p>
-                                {oneOrMoreVariantsAvailable ?(
-                                    null
-                                ):<p className="soldOutWaterMark text-red font-italic mb-0"> Ausverkauft</p>};
-                            
-                                <h5 className="text-blue font-italic mb-0">
+                                <p className="card-footer-price text-blue font-italic mb-0">
                                     {minPrice} - {maxPrice}
                                     <span className="mr-1">€</span>
-                                </h5>
+                                </p>
                             </div>
                         </div>
                     )}
@@ -84,11 +83,26 @@ const ProductWrapper = styled.div`
         transition:all 0.5s linear;
     }
     .card-footer{
-        
         background:transparent;
         border-top:transparent;
         transition:all 0.5s linear;
+        display:flex;
     }
+    .card-footer-title{
+        font-size:1.5rem;
+        font-color:var(--wombatGreen);
+        margin-top:-20px;
+    }
+    .card-footer-price{
+        margin-top:-10px;
+    }
+    @media screen and (max-width: 350px){
+        .card-footer{
+            display:block;
+            text-alig:center;
+        }
+    }
+    
     &:hover{
         .card{
             border:0.04rem solid rgba(0,0,0,0.2);

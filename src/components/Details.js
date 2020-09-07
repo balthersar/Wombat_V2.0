@@ -6,6 +6,7 @@ import styling from 'styled-components';
 
 
 export default class Details extends Component {
+    
     render() {
         return (
             <DetailWrapper>

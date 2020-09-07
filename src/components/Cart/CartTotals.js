@@ -17,15 +17,15 @@ export default function CartTotals({value}) {
                         </Link>
                         <h5>
                             <span className="text-title">Netto:</span>
-                            <strong>{cartSubTotal} €</strong>
+                            <strong>{cartSubTotal}€</strong>
                         </h5>
                         <h5>
-                            <span className="text-title">Mwst (19%):</span>
-                            <strong>{cartTax} €</strong>
+                            <span className="text-title">Mwst(19%): </span>
+                            <strong>{cartTax}€</strong>
                         </h5>
                         <h5>
-                            <span className="text-title">Zu zahlen:</span>
-                            <strong>{cartTotal} €</strong>
+                            <span className="text-title">Zu zahlen: </span>
+                            <strong>{cartTotal}€</strong>
                         </h5>
                         <ButtonContainer 
                             onClick ={()=>{              

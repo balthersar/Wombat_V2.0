@@ -56,9 +56,9 @@ export default class Modal extends Component {
                                             }}>
                                                 <span >&times;</span>
                                         </button>
-                                        <h5>Artikel hinzufügen:</h5>
-                                        <img src={img} className="img-fluid" alt="product"/>
-                                        <h5>{title}</h5>
+                                    
+                                        <img src={img[0]} className="img-fluid" alt="product"/>
+                                        <p>{title}</p>
                                         <p>Wähle eine Größe:</p>
                                         <div className="column">
                                                 <div className="row d-flex justify-content-center" >
@@ -120,6 +120,7 @@ top:0;
 left:0;
 right:0;
 bottom:0;
+font:1rem;
 background:rgba(0,0,0,0.3);
 display:flex;
 align-items:center;
@@ -129,11 +130,13 @@ justify-content:center;
 }
 .abortButton{
     position: absolute; 
-    right:1rem;
-    top:0;
+    right:0;
+    
     font-size: 2rem;
     border: 0px solid #000000; 
     outline:none; 
+    background:none;
+    top:-1rem;
 }
 
 `;
